@@ -1,4 +1,4 @@
-BITS 16
+BITS 16             ; directive telling NASM to work in 16 bits mode
 
 start:
 	mov ax, 07C0h		; Set up 4K stack space after this bootloader
@@ -16,7 +16,7 @@ start:
 	jmp $			; Jump here - infinite loop!
 
 
-	text_string db 'This is my cool new OS!', 0
+	text_string db 'Welcome to femtOS!', 0
 
 
 print_string:			; Routine: output string in SI to screen
