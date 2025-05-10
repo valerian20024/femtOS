@@ -11,3 +11,28 @@ J'ai essayé de suivre le premier tuto sur OSDev.org pour créer un Bare bones e
 J'aimerais bien réussir à juste booter en utilisant Bochs pour afficher un texte à l'écrann en utilisant le BIOS.
 
 J'ai réussi à suivre le tutoriel sur MikeOS pour charger depuis QEMU. C'est l'étape à laquelle je voulais arriver. Pour une fois, j'ai juste copié collé pour voir si ça fonctionnait d'abord. Je vais maintenant pouvoir étudier le code et le changer pour voir. On n'utilise pas encore de bootloader comme GRUB. Ca tient en quelques octets, femto porte bien son nom.
+
+May 10, 2025
+Réussi à écrire le binary de femto (femto.bin) sur une clé USB et à booter sur un support physique (mon portable). Mais par contre pas sur tous les supports. J'ai essayé de booter sur un AIO HP, mais seulement "Welc" s'est affiché, pas le reste.
+Est-ce un problème de version ou de BIOS ? Sur mon portable c'était l'UEFI qui prenait le relais.
+
+J'ai utilisé ces commandes :
+J'ai branché la clé, puis je l'ai vidée et démontée: 
+
+`lsblk`
+
+`sudo umount /dev/sdb1`
+
+Ensuite j'ai écrit en raw sur la clé sur le premier secteur (à la place du MBR):
+
+`sudo dd if=femto.bin of=/dev/sdb bs=512 count=1`
+
+J'ai testé sur QEMU (obligé de mettre ces arguments pour forcer le fait de lire du raw):
+
+`sudo qemu-system-i386 -drive file=/dev/sdb,format=raw,index=0,media=disk`
+
+Ensuite je démarre le PC physique, j'entre dans le BIOS et je choisis de booter sur la clé, et j'ai "Welcome to femtOS!" qui apparaît.
+
+Au final franchement content, mais j'ai de nouveaux sujets à creuser pour comprendre pourquoi un bootloader aussi simple ne fonctionne pas à tous les coups.
+
+
