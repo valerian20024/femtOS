@@ -35,4 +35,6 @@ Ensuite je démarre le PC physique, j'entre dans le BIOS et je choisis de booter
 
 Au final franchement content, mais j'ai de nouveaux sujets à creuser pour comprendre pourquoi un bootloader aussi simple ne fonctionne pas à tous les coups.
 
+May 11, 2025
 
+J'ai regardé comment lier un programme en C au mini bootloader en asm. J'ai trouvé des ressources intéressantes. Il faut que j'apprenne à utiliser inline asm dans un code C (qu'on voit dans experiment). Ca va demander un peu de travail pour faire tout fonctionner ensemble donc je vais attendre d'être plus à l'aise avec avant de vraiment tester sur femto.

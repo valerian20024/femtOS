@@ -8,3 +8,6 @@ This file will contain the many references I used to learn and develop.
 
 [MikeOS project](https://mikeos.sourceforge.net/write-your-own-os.html)
 
+[Writing inline assembly](https://www.codeproject.com/KB/cpp/edujini_inline_asm.aspx)
+
+[GNU GCC inline assembly](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html)
