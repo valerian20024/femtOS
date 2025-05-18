@@ -13,10 +13,24 @@ start:
 	mov si, text_string	; Put string position into SI
 	call print_string	; Call our string-printing routine
 
+	; Load C kernel from sector 2
+	mov ah, 0x02        ; BIOS read sector function
+    mov al, 1           ; Number of sectors to read (1 for now)
+    mov ch, 0           ; Cylinder 0
+    mov cl, 2           ; Sector 2 (1-based)
+    mov dh, 0           ; Head 0
+    mov dl, 0           ; Drive 0 (floppy)
+	mov bx, 0x1000      ; Load to ES:BX = 0x1000:0x0000
+    mov es, bx
+    xor bx, bx          ; BX = 0
+    int 0x13            ; BIOS disk read
+
+	; Jump to C kernel entry point (kernel_main at 0x1000:0x0000)
+    jmp 0x1000:0x0000
 	jmp $			    ; Jump here - infinite loop!
 
-	text_string 
-        db 'Welcome to femtOS!', 0  ; null-terminated
+text_string:
+    db 'Welcome from ASM!', 0  ; null-terminated
 
 print_string:			; Routine: output string in SI to screen
 	mov ah, 0xE		    ; int 10h 'print char' function

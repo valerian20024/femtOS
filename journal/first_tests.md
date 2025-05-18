@@ -43,4 +43,5 @@ May 17, 2025
 
 Je m'amuse avec Termux, ca refonctionne. J'ai mis git et la je code sur telephone. C'est marrant.
 
-
+May 18, 2025
+Essayé de linker un kernel.c avec l'asm du bootloader. Pas réussi, doit comprendre comment `ld` fonctionne.
