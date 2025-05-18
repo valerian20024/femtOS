@@ -44,4 +44,10 @@ May 17, 2025
 Je m'amuse avec Termux, ca refonctionne. J'ai mis git et la je code sur telephone. C'est marrant.
 
 May 18, 2025
-Essayé de linker un kernel.c avec l'asm du bootloader. Pas réussi, doit comprendre comment `ld` fonctionne.
+Essayé de linker un kernel.c avec l'asm du bootloader. Pas réussi, doit comprendre comment `ld` fonctionne. Les questions auxquelles repondre :
+- Comment utilise le langage de script de `ld`?
+- Comment la memoire est segmentee en 16-bit real mode => comment jmp correctement vers le code C?
+- Faire une synthese de ce que j'ai appris avec le inline assembly parce que je sens que j'ai un peu oublie. En particulier, etre plus familier avec le AT&T style utilise par GAS.
+- Regarder les intterupts du BIOS et comment les utiliser pour imprimer des caracters.
+- Connaitre les registres utilises sur x86 et a quoi ils servent dans le contexte actuel.
+
